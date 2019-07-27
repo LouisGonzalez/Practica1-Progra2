@@ -48,6 +48,11 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         estudiante.add(jMenuItem1);
 
         listado.setText("Ver listado oficial ");
+        listado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listadoActionPerformed(evt);
+            }
+        });
         estudiante.add(listado);
 
         prestamo.setText("Prestar un libro");
@@ -99,6 +104,13 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         frm.setVisible(true);
         //frm.setSize(WIDTH, HEIGHT);
     }//GEN-LAST:event_prestamosMora1ActionPerformed
+
+    private void listadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoActionPerformed
+
+
+
+
+    }//GEN-LAST:event_listadoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem biblioteca;
