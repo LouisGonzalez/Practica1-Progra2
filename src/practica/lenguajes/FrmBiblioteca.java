@@ -28,6 +28,8 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         prestamos = new javax.swing.JMenu();
         prestamosMora = new javax.swing.JMenuItem();
         prestamosTotales = new javax.swing.JMenuItem();
+        btnConf = new javax.swing.JMenu();
+        prestamosMora1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,13 +75,34 @@ public class FrmBiblioteca extends javax.swing.JFrame {
 
         jMenuBar1.add(prestamos);
 
+        btnConf.setText("Configuracion");
+
+        prestamosMora1.setText("Importar Archivo");
+        prestamosMora1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prestamosMora1ActionPerformed(evt);
+            }
+        });
+        btnConf.add(prestamosMora1);
+
+        jMenuBar1.add(btnConf);
+
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void prestamosMora1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestamosMora1ActionPerformed
+        // TODO add your handling code here:
+        
+        Cargar frm = new Cargar();
+        frm.setVisible(true);
+        //frm.setSize(WIDTH, HEIGHT);
+    }//GEN-LAST:event_prestamosMora1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem biblioteca;
+    private javax.swing.JMenu btnConf;
     private javax.swing.JMenu estudiante;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
@@ -91,6 +114,7 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     private javax.swing.JMenuItem prestamo;
     private javax.swing.JMenu prestamos;
     private javax.swing.JMenuItem prestamosMora;
+    private javax.swing.JMenuItem prestamosMora1;
     private javax.swing.JMenuItem prestamosTotales;
     // End of variables declaration//GEN-END:variables
 }
