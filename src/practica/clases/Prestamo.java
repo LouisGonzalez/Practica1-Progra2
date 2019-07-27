@@ -5,11 +5,13 @@
  */
 package practica.clases;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Julio
  */
-public class Prestamo {
+public class Prestamo implements Serializable{
     
     private Libro aPrestar;
     private Estudiante quePresta;
