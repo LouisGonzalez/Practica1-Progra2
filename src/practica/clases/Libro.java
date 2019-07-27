@@ -5,11 +5,13 @@
  */
 package practica.clases;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Julio
  */
-public class Libro {
+public class Libro implements Serializable{
    
     private String titulo;
     private String autor;
