@@ -23,10 +23,7 @@ public class Estudiante {
         this.carnet = carnet;
         this.codigoCarrera = codigoCarrera;
     }
-    
-    
-    
-    
+       
     public String getNombre() {
         return nombre;
     }
