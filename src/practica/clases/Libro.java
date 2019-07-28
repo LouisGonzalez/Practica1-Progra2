@@ -33,6 +33,14 @@ public class Libro implements Serializable{
         this.codigo = codigo;
         this.cantidad = cantidad;
     }
+
+    public Libro(String titulo, String autor, String codigo, int cantidad, int prestados) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.codigo = codigo;
+        this.cantidad = cantidad;
+        this.prestados = prestados;
+    }
     
 
     public String getTitulo() {
