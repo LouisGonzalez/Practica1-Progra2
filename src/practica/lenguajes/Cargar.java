@@ -137,11 +137,8 @@ public class Cargar extends javax.swing.JFrame {
                            Entrada deTexto = new Entrada();
                            deTexto.setPathTxt(path);
                            
-                           deTexto.leerTxt();
-                      //     archivo.leerArchivo();
-                          //Hilo archivo= new Hilo(path,path); 
-                          //archivo.run();
-                            //archivo.leerArchivo(); 
+                           deTexto.leerTxt(proceso,errores);
+                      
                        } catch (Exception e) {
                        }
                        

@@ -6,8 +6,10 @@
 package practica.lenguajes;
 
 
+import java.awt.Color;
 import java.io.File;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import practica.clases.Estudiante;
 import practica.clases.Libro;
 import practica.clases.Prestamo;
@@ -49,16 +51,18 @@ public class Interprete {
             }
             
     }
-    public void formarTupla(String palabra){
-        if (tupla[0]==null) {
+    public void formarTupla(String palabra, JTextArea errores, int cont){
+        String palabraIn=palabra;
+        System.out.println("palabra in"+palabraIn+"  "+palabra);
+        if (/*(palabraIn.equalsIgnoreCase("LIBRO") || palabraIn.equalsIgnoreCase("PRESTAMO") || palabraIn.equalsIgnoreCase("ESTUDIANTE")) && */tupla[0]==null) {
             tupla[0] = palabra;
         }else if (tupla[0].equals("LIBRO") ) {
             contador++;
             formarLibro(palabra);
             if (contador==4) {        //titulo   //autor   //codigo  //copias totales          //prestados
                 Libro libro = new Libro(tupla[1], tupla[2], tupla[3], Integer.parseInt(tupla[4]), 0);
-                Salida deLibro = new Salida();
-                deLibro.EscribirBin(libro, "", tupla[3], ".book");
+                Salida<Libro> deLibro = new Salida();
+                deLibro.EscribirBin(libro, MenuPrincipal.pathLibro, tupla[3], ".book");
                 tupla = null;
                 contador=0;
                  this.tupla = new String [5];
@@ -70,8 +74,8 @@ public class Interprete {
             if (contador==3) {
                 System.out.println("Estudiante create");
                 Estudiante nuevo = new Estudiante(tupla[2],Integer.parseInt(tupla[1]),  Integer.parseInt(tupla[3]), 0);
-                Salida student = new Salida();
-                student.EscribirBin(nuevo, "", tupla[1], ".st");
+                Salida<Estudiante> student = new Salida<Estudiante>();
+                student.EscribirBin(nuevo, MenuPrincipal.pathEstudiante, tupla[1], ".st");
                 tupla = null;
                 contador=0;
                  this.tupla = new String [5];
@@ -84,35 +88,51 @@ public class Interprete {
                 System.out.println("creando prestamo");
                 Prestamo nuevo = new Prestamo();
                 
-                File buscar = new File(tupla[1]+".book");
+                File buscar = new File(MenuPrincipal.pathLibro+tupla[1]+".book");
                 if (buscar.exists()) {
                     Entrada<Libro> nueva = new Entrada();
                     //Libro nuevo  = (Libro) nueva.leerBin("", tupla[1], ".book");
-                    Libro recuperado = (Libro) nueva.leerBin("", tupla[1], ".book");
+                    Libro recuperado = (Libro) nueva.leerBin(MenuPrincipal.pathLibro, tupla[1], ".book");
                     nuevo.setaPrestar(recuperado);
                     
                     buscar = null;
-                    buscar = new File(tupla[2]+".st");
-                    if (buscar.exists()) {
+                    buscar = new File(MenuPrincipal.pathEstudiante+tupla[2]+".st");
+                    if (buscar.exists() && recuperado.getPrestados()>0) {
                         Entrada<Estudiante> inStudent = new Entrada<Estudiante>();
                         
-                        Estudiante quePresta = inStudent.leerBin("", tupla[2], ".st");
+                        Estudiante quePresta = inStudent.leerBin(MenuPrincipal.pathEstudiante, tupla[2], ".st");
                         
-                        nuevo.setQuePresta(quePresta);
-                        Salida<Prestamo> dePrestamo = new Salida();
-                        dePrestamo.EscribirBin(nuevo, "", tupla[1], ".pr");
-                        
+                       
+                       
+                        if (quePresta.getLibrosPrestados()<3) {
+                            
+                            nuevo.setQuePresta(quePresta);
+                            Salida<Prestamo> dePrestamo = new Salida();
+                            dePrestamo.EscribirBin(nuevo, MenuPrincipal.pathPrestamo, tupla[1], ".pr");
+
+                           recuperado.setPrestados(recuperado.getPrestados()-1);
+                           Salida<Libro> deLibro = new Salida<>();
+                           deLibro.EscribirBin(recuperado, MenuPrincipal.pathLibro, recuperado.getCodigo(), ".book");
+                           
+                           Salida<Estudiante>  binEstudent = new Salida<>();
+                           binEstudent.EscribirBin(quePresta, MenuPrincipal.pathEstudiante, String.valueOf(quePresta.getCarnet()), ".st");
+                           
+                        }else{
+                            errores.setText(errores.getText()+"Error Linea #"+cont +" Excedio el Limite de Prestamos");
+                        }
                     }else {
                         
                         System.out.println("Error en prestamo, no se encontro estudiante");
-                        JOptionPane.showMessageDialog(null, "Error no se encontro Al estudiante", "Error", JOptionPane.ERROR);
+                        errores.setText(errores.getText()+"Error Linea #"+cont +" No existe Estudiante "+"Prestamo Cancelado");
+                        //JOptionPane.showMessageDialog(null, "Error no se encontro Al estudiante", "Error", JOptionPane.ERROR);
                     }
                 }else{
-                    JOptionPane.showMessageDialog(null, "Error no se encontrov Libro", "Error", JOptionPane.ERROR);
+                    
+                    errores.setText(errores.getText()+"Error Linea #"+cont +" No existe Libro, Verifique Codigo "+"Prestamo Cancelado");
                     System.out.println("Error en prestamo, no se encontro Libro");
                 }
                 
-                
+                errores.setForeground(Color.red);
                
                 tupla = null;
                 contador=0;
@@ -120,7 +140,9 @@ public class Interprete {
             }
             
         }else{
-            System.out.println("Linea Con Error");
+             errores.setText(errores.getText()+"\nError Linea #"+cont +" IDentificador Invalido "+"Las Siguientes lineas se anularan hasta encontrar un IDENTIFICADOR VALIDO");
+             errores.setForeground(Color.red);
+             tupla[0] = null;
         }
     }
     public void formarPrestamo(String palabra){
