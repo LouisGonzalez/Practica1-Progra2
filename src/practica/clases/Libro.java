@@ -26,15 +26,12 @@ public class Libro implements Serializable{
  * @param titulo tipo string "nombre del libro"
  * @param autor  String 
  * @param codigo String identificado unico de cada libro
- * @param cantidad total de  copias de un libro
- * @param prestados  
  */
-    public Libro(String titulo, String autor, String codigo, int cantidad, int prestados) {
+    public Libro(String titulo, String autor, String codigo, int cantidad) {
         this.titulo = titulo;
         this.autor = autor;
         this.codigo = codigo;
         this.cantidad = cantidad;
-        this.prestados = prestados;
     }
     
 
