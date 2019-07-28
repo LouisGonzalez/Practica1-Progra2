@@ -12,7 +12,7 @@ public class ArchivosEstudiantes implements Serializable {
     public void guardarEstudiante(Estudiante estudiante){
         try{        
             
-            String fichero = "src/practica/Datos/Estudiantes/"+estudiante.getCarnet()+".dat";    
+            String fichero = MenuPrincipal.pathEstudiante+estudiante.getCodigo()+".dat";    
             File file = new File(fichero);        
             if(!file.exists()){
                 file.createNewFile();

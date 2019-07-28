@@ -17,7 +17,6 @@ public static String pathPrestamo;
             pathEstudiante =  deCarpetas.crearCarpeta("Estudiante")+File.separatorChar;
             pathLibro = deCarpetas.crearCarpeta("Libro")+File.separatorChar;
             pathPrestamo = deCarpetas.crearCarpeta("Prestamo")+File.separatorChar;
-            System.out.println("Hola mundo");
             FrmBiblioteca biblioteca = new FrmBiblioteca();
             biblioteca.setVisible(true);
             

@@ -1,6 +1,7 @@
 package practica.lenguajes;
 
 import practica.clases.Estudiante;
+import practica.clases.Libro;
 
 /**
  *
@@ -10,6 +11,8 @@ public class FrmBiblioteca extends javax.swing.JFrame {
 
     ArchivosEstudiantes archivos = new ArchivosEstudiantes();
     ArchivosLibros archivo2 = new ArchivosLibros();
+    private ListaLibros<Libro> misLibros = new ListaLibros<>();
+    
     
     public FrmBiblioteca() {
         initComponents();
@@ -20,8 +23,9 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelBiblioteca = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        txt5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         estudiante = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -39,13 +43,14 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelBiblioteca.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 24)); // NOI18N
         jLabel1.setText("BIBLIOTECA");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 151, 38));
+        panelBiblioteca.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 151, 38));
+        panelBiblioteca.add(txt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 190, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 380));
+        getContentPane().add(panelBiblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 350));
 
         estudiante.setText("Estudiantes");
 
@@ -134,12 +139,12 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        DlgCrearLibro libro = new DlgCrearLibro(null, true, archivo2);
+        DlgCrearLibro libro = new DlgCrearLibro(null, true, archivo2, txt5, misLibros);
         libro.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void bibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibliotecaActionPerformed
-        DlgListaLibros listadoLib = new DlgListaLibros(null, true);
+        DlgListaLibros listadoLib = new DlgListaLibros(null, true, archivo2, txt5, misLibros);
         listadoLib.setVisible(true);
     }//GEN-LAST:event_bibliotecaActionPerformed
 
@@ -151,13 +156,14 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu libros;
     private javax.swing.JMenuItem listado;
+    private javax.swing.JPanel panelBiblioteca;
     private javax.swing.JMenuItem prestamo;
     private javax.swing.JMenu prestamos;
     private javax.swing.JMenuItem prestamosMora;
     private javax.swing.JMenuItem prestamosMora1;
     private javax.swing.JMenuItem prestamosTotales;
+    private javax.swing.JLabel txt5;
     // End of variables declaration//GEN-END:variables
 }

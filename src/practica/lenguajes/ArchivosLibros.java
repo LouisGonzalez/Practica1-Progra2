@@ -1,5 +1,6 @@
 package practica.lenguajes;
 import java.io.*;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import practica.clases.Libro;
 
@@ -9,9 +10,9 @@ import practica.clases.Libro;
  */
 public class ArchivosLibros implements Serializable {
     
-    public void guardarLibro(Libro libros){
+    public void guardarLibro(Libro libros, ListaLibros<Libro> misLibros){
         try{
-            String fichero="src/practica/Datos/Libros/"+libros.getCodigo()+".dat";
+            String fichero=MenuPrincipal.pathLibro+libros.getCodigo()+".dat";
             File file = new File(fichero);
             if(!file.exists()){
                 file.createNewFile();
@@ -19,8 +20,9 @@ public class ArchivosLibros implements Serializable {
                 JOptionPane.showMessageDialog(null, "Ya existe un estudiante registrado con esta matricula");
             }
             ObjectOutputStream objetoArchivo = new ObjectOutputStream(new FileOutputStream(file));
-            objetoArchivo.writeObject(libros);
-            objetoArchivo.flush();
+            objetoArchivo.writeObject(libros);   
+            misLibros.insertarContenido(libros);
+            objetoArchivo.flush();            
             objetoArchivo.close();
         } catch(FileNotFoundException e){
             JOptionPane.showMessageDialog(null, e);
@@ -28,17 +30,5 @@ public class ArchivosLibros implements Serializable {
         }
     }
     
-    public Libro leerLibro(String titulo, String autor, String codigo, int cantidad){
-        Libro nuevo = new Libro(titulo, autor, codigo, cantidad);
-        try{
-            try(ObjectInputStream salidaArchivo = new ObjectInputStream(new FileInputStream(nuevo.getCodigo()+".dat"))){
-                nuevo = (Libro) salidaArchivo.readObject();
-            }
-        } catch(ClassNotFoundException ex){
-            ex.printStackTrace();
-        } catch(IOException ioe){
-            JOptionPane.showMessageDialog(null, "No hay archivos por el momento");
-        }
-        return nuevo;
-    }
+    
 }

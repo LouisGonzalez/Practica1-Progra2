@@ -1,5 +1,6 @@
 package practica.lenguajes;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import practica.clases.Libro;
 
@@ -11,10 +12,14 @@ public class DlgCrearLibro extends javax.swing.JDialog {
     
     private ArchivosLibros archivo;
     private String codigo[] = new String[6];
+    private JLabel txt5;
+    private ListaLibros<Libro> misLibros;
     
-    public DlgCrearLibro(java.awt.Frame parent, boolean modal, ArchivosLibros archivo) {
+    public DlgCrearLibro(java.awt.Frame parent, boolean modal, ArchivosLibros archivo, JLabel txt5, ListaLibros<Libro> misLibros) {
         super(parent, modal);
         this.archivo = archivo;
+        this.misLibros = misLibros;
+        this.txt5 = txt5;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -106,21 +111,33 @@ public class DlgCrearLibro extends javax.swing.JDialog {
         codigo[3] = a4.getSelectedItem().toString();
         codigo[4] = a5.getSelectedItem().toString();
         codigo[5] = a6.getSelectedItem().toString();
+        txt5.setText(codigo[0]+codigo[1]+codigo[2]+"-"+codigo[3]+codigo[4]+codigo[5]); 
         try{          
             if(Integer.parseInt(txt3.getText())==0 || txt3.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "No se puede agregar un libro si no hay ninguna copia de el");
-            } else {
-            Libro libros = new Libro(txt1.getText(), txt2.getText(), codigo[0]+codigo[1]+codigo[2]+"-"+codigo[3]+codigo[4]+codigo[5], Integer.parseInt(txt3.getText()));
-            archivo.guardarLibro(libros);
-            txt1.setText("");
-            txt2.setText("");
-            txt3.setText("");
+            } else {                 
+                Libro libros = new Libro(txt1.getText(), txt2.getText(), codigo[0]+codigo[1]+codigo[2]+"-"+codigo[3]+codigo[4]+codigo[5], Integer.parseInt(txt3.getText()));
+                archivo.guardarLibro(libros, misLibros);
+                txt1.setText("");
+                txt2.setText("");
+                txt3.setText("");       
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, "Ha escrito un caracter incorrecto");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public JLabel getTxt5() {
+        return txt5;
+    }
+
+    public void setTxt5(JLabel txt5) {
+        this.txt5 = txt5;
+    }
+
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> a1;
