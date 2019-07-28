@@ -28,8 +28,8 @@ public class ArchivosLibros implements Serializable {
         }
     }
     
-    public Libro leerLibro(String titulo, String autor, String codigo){
-        Libro nuevo = new Libro(titulo, autor, codigo);
+    public Libro leerLibro(String titulo, String autor, String codigo, int cantidad){
+        Libro nuevo = new Libro(titulo, autor, codigo, cantidad);
         try{
             try(ObjectInputStream salidaArchivo = new ObjectInputStream(new FileInputStream(nuevo.getCodigo()+".dat"))){
                 nuevo = (Libro) salidaArchivo.readObject();

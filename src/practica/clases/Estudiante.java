@@ -15,10 +15,10 @@ public class Estudiante {
     
     private String nombre;
     private int carnet;
-    private int codigoCarrera;
+    private String codigoCarrera;
     private Date fechaNacimiento;
 
-    public Estudiante(String nombre, int carnet, int codigoCarrera) {
+    public Estudiante(String nombre, int carnet, String codigoCarrera) {
         this.nombre = nombre;
         this.carnet = carnet;
         this.codigoCarrera = codigoCarrera;
@@ -40,12 +40,8 @@ public class Estudiante {
         this.carnet = carnet;
     }
 
-    public int getCodigoCarrera() {
+    public String getCodigoCarrera() {
         return codigoCarrera;
-    }
-
-    public void setCodigoCarrera(int codigoCarrera) {
-        this.codigoCarrera = codigoCarrera;
     }
 
     public Date getFechaNacimiento() {

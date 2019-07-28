@@ -81,6 +81,11 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         libros.add(jMenuItem2);
 
         biblioteca.setText("Ver biblioteca");
+        biblioteca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bibliotecaActionPerformed(evt);
+            }
+        });
         libros.add(biblioteca);
 
         jMenuBar1.add(libros);
@@ -119,6 +124,8 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_prestamosMora1ActionPerformed
 
     private void listadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoActionPerformed
+        DlgListaEstudiantes listadoEst = new DlgListaEstudiantes(null, true);
+        listadoEst.setVisible(true);
     }//GEN-LAST:event_listadoActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -127,9 +134,14 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        DlgNuevoLibro libro = new DlgNuevoLibro(null, true, archivo2);
+        DlgCrearLibro libro = new DlgCrearLibro(null, true, archivo2);
         libro.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void bibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibliotecaActionPerformed
+        DlgListaLibros listadoLib = new DlgListaLibros(null, true);
+        listadoLib.setVisible(true);
+    }//GEN-LAST:event_bibliotecaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem biblioteca;

@@ -29,8 +29,8 @@ public class DlgNuevoEstudiante extends javax.swing.JDialog {
         carreraEstudiante = new javax.swing.JLabel();
         txt1 = new javax.swing.JTextField();
         txt2 = new javax.swing.JTextField();
-        txt3 = new javax.swing.JTextField();
         registroDatos = new javax.swing.JButton();
+        carrera = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -47,7 +47,6 @@ public class DlgNuevoEstudiante extends javax.swing.JDialog {
         panelEstudiante.add(carreraEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 110, 30));
         panelEstudiante.add(txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 140, 20));
         panelEstudiante.add(txt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 140, -1));
-        panelEstudiante.add(txt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 140, -1));
 
         registroDatos.setText("Ingresar");
         registroDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +56,9 @@ public class DlgNuevoEstudiante extends javax.swing.JDialog {
         });
         panelEstudiante.add(registroDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 190, 100, 30));
 
+        carrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingenieria", "Medicina", "Derecho", "Arquitectura", "Administracion" }));
+        panelEstudiante.add(carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+
         getContentPane().add(panelEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 260));
 
         pack();
@@ -64,11 +66,10 @@ public class DlgNuevoEstudiante extends javax.swing.JDialog {
 
     private void registroDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroDatosActionPerformed
         try {
-            Estudiante nuevo = new Estudiante(txt1.getText(), Integer.parseInt(txt2.getText()), Integer.parseInt(txt3.getText()));
+            Estudiante nuevo = new Estudiante(txt1.getText(), Integer.parseInt(txt2.getText()), carrera.getSelectedItem().toString());
             archivo.guardarEstudiante(nuevo);       
             txt1.setText("");
             txt2.setText("");
-            txt3.setText("");
         } catch(Exception e){
            JOptionPane.showMessageDialog(null, "Ha escrito un caracter incorrecto");
         }
@@ -78,12 +79,12 @@ public class DlgNuevoEstudiante extends javax.swing.JDialog {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel carnetEstudiante;
+    private javax.swing.JComboBox<String> carrera;
     private javax.swing.JLabel carreraEstudiante;
     private javax.swing.JLabel nombreEstudiante;
     private javax.swing.JPanel panelEstudiante;
     private javax.swing.JButton registroDatos;
     private javax.swing.JTextField txt1;
     private javax.swing.JTextField txt2;
-    private javax.swing.JTextField txt3;
     // End of variables declaration//GEN-END:variables
 }
