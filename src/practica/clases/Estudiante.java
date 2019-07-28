@@ -5,13 +5,14 @@
  */
 package practica.clases;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author Julio
  */
-public class Estudiante {
+public class Estudiante implements Serializable{
     
     private String nombre;
     private int carnet;

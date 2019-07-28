@@ -1,5 +1,6 @@
 package practica.lenguajes;
 import java.io.*;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import practica.clases.Libro;
 
@@ -9,7 +10,7 @@ import practica.clases.Libro;
  */
 public class ArchivosLibros implements Serializable {
     
-    public void guardarLibro(Libro libros){
+    public void guardarLibro(Libro libros, ListaLibros<Libro> misLibros){
         try{
             String fichero="src/practica/Datos/Libros/"+libros.getCodigo()+".dat";
             File file = new File(fichero);
@@ -19,8 +20,9 @@ public class ArchivosLibros implements Serializable {
                 JOptionPane.showMessageDialog(null, "Ya existe un estudiante registrado con esta matricula");
             }
             ObjectOutputStream objetoArchivo = new ObjectOutputStream(new FileOutputStream(file));
-            objetoArchivo.writeObject(libros);
-            objetoArchivo.flush();
+            objetoArchivo.writeObject(libros);         
+            misLibros.insertarContenido(libros);
+            objetoArchivo.flush();            
             objetoArchivo.close();
         } catch(FileNotFoundException e){
             JOptionPane.showMessageDialog(null, e);
@@ -28,17 +30,30 @@ public class ArchivosLibros implements Serializable {
         }
     }
     
-    public Libro leerLibro(String titulo, String autor, String codigo, int cantidad){
-        Libro nuevo = new Libro(titulo, autor, codigo, cantidad);
+    public void leerLibro(ListaLibros<Libro> libro, Libro libros){
+        
         try{
-            try(ObjectInputStream salidaArchivo = new ObjectInputStream(new FileInputStream(nuevo.getCodigo()+".dat"))){
-                nuevo = (Libro) salidaArchivo.readObject();
+            try(ObjectInputStream salidaArchivo = new ObjectInputStream(new FileInputStream("src/practica/Datos/Libros/"+libros.getCodigo()+".dat"))){
+                libros = (Libro) salidaArchivo.readObject();
             }
         } catch(ClassNotFoundException ex){
             ex.printStackTrace();
         } catch(IOException ioe){
             JOptionPane.showMessageDialog(null, "No hay archivos por el momento");
         }
-        return nuevo;
+   
+    }
+    
+    
+    public void leer(JLabel codigo){
+        try{
+            ObjectInputStream file = new ObjectInputStream(new FileInputStream("src/practica/Datos/Libros/"+codigo.getText()+".dat"));
+            Libro libros = (Libro) file.readObject();
+            file.close();
+        } catch(ClassNotFoundException ex){
+            ex.printStackTrace();
+        } catch(IOException ioe){
+            JOptionPane.showMessageDialog(null, "No hay archivos por el momento");
+        }
     }
 }

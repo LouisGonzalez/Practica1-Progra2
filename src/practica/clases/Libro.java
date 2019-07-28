@@ -5,11 +5,13 @@
  */
 package practica.clases;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Julio
  */
-public class Libro {
+public class Libro implements Serializable {
    
     private String titulo;
     private String autor;
@@ -17,13 +19,13 @@ public class Libro {
     private int    cantidad;
     private int    prestados;
 
-    public Libro() {
-    }
+    
 /**
  * 
  * @param titulo tipo string "nombre del libro"
  * @param autor  String 
  * @param codigo String identificado unico de cada libro
+     * @param cantidad
  */
     public Libro(String titulo, String autor, String codigo, int cantidad) {
         this.titulo = titulo;
