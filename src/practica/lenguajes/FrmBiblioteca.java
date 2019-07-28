@@ -1,11 +1,16 @@
 package practica.lenguajes;
 
+import practica.clases.Estudiante;
+
 /**
  *
  * @author luisGonzalez
  */
 public class FrmBiblioteca extends javax.swing.JFrame {
 
+    ArchivosEstudiantes archivos = new ArchivosEstudiantes();
+    ArchivosLibros archivo2 = new ArchivosLibros();
+    
     public FrmBiblioteca() {
         initComponents();
         setLocationRelativeTo(null);
@@ -45,9 +50,19 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         estudiante.setText("Estudiantes");
 
         jMenuItem1.setText("Agregar nuevo estudiante");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         estudiante.add(jMenuItem1);
 
         listado.setText("Ver listado oficial ");
+        listado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listadoActionPerformed(evt);
+            }
+        });
         estudiante.add(listado);
 
         prestamo.setText("Prestar un libro");
@@ -58,9 +73,19 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         libros.setText("Libros");
 
         jMenuItem2.setText("Agregar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         libros.add(jMenuItem2);
 
         biblioteca.setText("Ver biblioteca");
+        biblioteca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bibliotecaActionPerformed(evt);
+            }
+        });
         libros.add(biblioteca);
 
         jMenuBar1.add(libros);
@@ -93,12 +118,30 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void prestamosMora1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestamosMora1ActionPerformed
-        // TODO add your handling code here:
-        
         Cargar frm = new Cargar();
         frm.setVisible(true);
         //frm.setSize(WIDTH, HEIGHT);
     }//GEN-LAST:event_prestamosMora1ActionPerformed
+
+    private void listadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadoActionPerformed
+        DlgListaEstudiantes listadoEst = new DlgListaEstudiantes(null, true);
+        listadoEst.setVisible(true);
+    }//GEN-LAST:event_listadoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        DlgNuevoEstudiante estudiante = new DlgNuevoEstudiante(null, true, archivos);
+        estudiante.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        DlgCrearLibro libro = new DlgCrearLibro(null, true, archivo2);
+        libro.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void bibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibliotecaActionPerformed
+        DlgListaLibros listadoLib = new DlgListaLibros(null, true);
+        listadoLib.setVisible(true);
+    }//GEN-LAST:event_bibliotecaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem biblioteca;

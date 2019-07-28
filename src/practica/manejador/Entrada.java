@@ -6,11 +6,13 @@
 package practica.manejador;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import javax.swing.JTextArea;
 import practica.lenguajes.Interprete;
 
 /**
@@ -65,7 +67,7 @@ public class Entrada <T> {
      * @throws InterruptedException 
      * metodo que lee linea a linea de un txt para luego enviarlo a un interprete
      */
-    public void leerTxt()throws FileNotFoundException, ClassNotFoundException, InterruptedException{
+    public void leerTxt(JTextArea area,JTextArea errores)throws FileNotFoundException, ClassNotFoundException, InterruptedException{
     Interprete interprete = new Interprete();
         FileReader entrada; 
     try {
@@ -86,7 +88,9 @@ public class Entrada <T> {
                 
                 if(linea!=null ){
                     
-                     interprete.formarTupla(linea);
+                     interprete.formarTupla(linea,errores,cont);
+                     
+                     area.setText(area.getText()+"\n"+cont+". "+linea);
                 }       
             }
         entrada.close();
@@ -94,19 +98,5 @@ public class Entrada <T> {
         e.printStackTrace();
     }
 }
-    public void  tipoDeObjeto(String palabra){
-        switch (palabra) {
-            case "Estudiante":
-                
-                break;
-            case "Prestamo":
-                
-                break;
-            case "Libro":
-                
-                break;
-            default:
-                throw new AssertionError();
-        }
-    }
+   
 }

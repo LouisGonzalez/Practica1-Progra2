@@ -6,6 +6,7 @@
 package practica.manejador;
 
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -39,4 +40,15 @@ public class Salida <T>{
            ioe.printStackTrace();
        }
     }
+    
+    public String crearCarpeta(String nombre){
+       
+       File carpeta = new File(nombre);
+       
+       if (!carpeta.exists()) {
+           carpeta.mkdir();
+       }
+       return carpeta.getAbsolutePath();
+       
+   }
 }

@@ -18,16 +18,37 @@ public class Estudiante implements Serializable{
     private int carnet;
     private int codigoCarrera;
     private Date fechaNacimiento;
-
-    public Estudiante(String nombre, int carnet, int codigoCarrera) {
+    private int librosPrestados;
+    private String codigo;
+    
+    public Estudiante(String nombre, int carnet, int codigoCarrera, int librosPrestados) {
         this.nombre = nombre;
         this.carnet = carnet;
         this.codigoCarrera = codigoCarrera;
+        this.librosPrestados = librosPrestados;
     }
-    
-    
-    
-    
+     public Estudiante(String nombre, int carnet, String codigoCarrera) {
+        this.nombre = nombre;
+        this.carnet = carnet;
+        this.codigo = codigo;
+    }
+
+    public int getLibrosPrestados() {
+        return librosPrestados;
+    }
+
+    public void setLibrosPrestados(int librosPrestados) {
+        this.librosPrestados = librosPrestados;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+     
     public String getNombre() {
         return nombre;
     }
