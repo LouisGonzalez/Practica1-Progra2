@@ -132,15 +132,13 @@ public class Cargar extends javax.swing.JFrame {
                    if(archivo.getName().endsWith("txt")){
                        System.out.println("ahora crear un interprete para crear instancias");
                        try {
-                           //LeerLineas archivo = new LeerLineas(path);
+                          
+                           
                            Entrada deTexto = new Entrada();
                            deTexto.setPathTxt(path);
                            
-                           deTexto.leerTxt();
-                      //     archivo.leerArchivo();
-                          //Hilo archivo= new Hilo(path,path); 
-                          //archivo.run();
-                            //archivo.leerArchivo(); 
+                           deTexto.leerTxt(proceso,errores);
+                      
                        } catch (Exception e) {
                        }
                        
