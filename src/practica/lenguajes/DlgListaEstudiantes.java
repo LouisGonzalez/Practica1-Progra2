@@ -53,27 +53,23 @@ public class DlgListaEstudiantes extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tablaEstudiantes);
 
-<<<<<<< HEAD
-        panelEstudiantes.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 360, 230));
-=======
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 430, 250));
->>>>>>> master
+        panelEstudiantes.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 430, 250));
 
-        getContentPane().add(panelEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        getContentPane().add(panelEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     
     public void loadStudent(){
-       Object[][] filas;
+        Object[][] filas;
         Entrada<Estudiante> allStudent = new Entrada<>();
         File  explorador = new File(MenuPrincipal.pathEstudiante);
         DefaultTableModel model = (DefaultTableModel) tablaEstudiantes.getModel();
         //
         for (String string : explorador.list()) {
             Estudiante aMostrar = allStudent.leerBin(MenuPrincipal.pathEstudiante, string, "");
-           Object[] filass = {aMostrar.getCarnet(),aMostrar.getNombre(),aMostrar.getCodigoCarrera()};
+            Object[] filass = {aMostrar.getCarnet(),aMostrar.getNombre(),aMostrar.getCodigoCarrera()};
             model.addRow(filass);
             
         }

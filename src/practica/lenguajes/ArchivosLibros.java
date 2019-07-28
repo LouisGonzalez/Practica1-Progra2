@@ -12,7 +12,7 @@ public class ArchivosLibros implements Serializable {
     
     public void guardarLibro(Libro libros, ListaLibros<Libro> misLibros){
         try{
-            String fichero="src/practica/Datos/Libros/"+libros.getCodigo()+".dat";
+            String fichero=MenuPrincipal.pathLibro+libros.getCodigo()+".dat";
             File file = new File(fichero);
             if(!file.exists()){
                 file.createNewFile();
@@ -20,7 +20,7 @@ public class ArchivosLibros implements Serializable {
                 JOptionPane.showMessageDialog(null, "Ya existe un estudiante registrado con esta matricula");
             }
             ObjectOutputStream objetoArchivo = new ObjectOutputStream(new FileOutputStream(file));
-            objetoArchivo.writeObject(libros);         
+            objetoArchivo.writeObject(libros);   
             misLibros.insertarContenido(libros);
             objetoArchivo.flush();            
             objetoArchivo.close();
@@ -30,30 +30,5 @@ public class ArchivosLibros implements Serializable {
         }
     }
     
-    public void leerLibro(ListaLibros<Libro> libro, Libro libros){
-        
-        try{
-            try(ObjectInputStream salidaArchivo = new ObjectInputStream(new FileInputStream("src/practica/Datos/Libros/"+libros.getCodigo()+".dat"))){
-                libros = (Libro) salidaArchivo.readObject();
-            }
-        } catch(ClassNotFoundException ex){
-            ex.printStackTrace();
-        } catch(IOException ioe){
-            JOptionPane.showMessageDialog(null, "No hay archivos por el momento");
-        }
-   
-    }
     
-    
-    public void leer(JLabel codigo){
-        try{
-            ObjectInputStream file = new ObjectInputStream(new FileInputStream("src/practica/Datos/Libros/"+codigo.getText()+".dat"));
-            Libro libros = (Libro) file.readObject();
-            file.close();
-        } catch(ClassNotFoundException ex){
-            ex.printStackTrace();
-        } catch(IOException ioe){
-            JOptionPane.showMessageDialog(null, "No hay archivos por el momento");
-        }
-    }
 }

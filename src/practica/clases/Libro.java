@@ -11,11 +11,7 @@ import java.io.Serializable;
  *
  * @author Julio
  */
-<<<<<<< HEAD
 public class Libro implements Serializable {
-=======
-public class Libro implements Serializable{
->>>>>>> master
    
     private String titulo;
     private String autor;

@@ -1,5 +1,6 @@
 package practica.lenguajes;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.logging.Level;
@@ -8,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import practica.clases.Libro;
+import practica.manejador.Entrada;
 
 /**
  *
@@ -27,7 +29,7 @@ public class DlgListaLibros extends javax.swing.JDialog {
         this.clave = clave;
         this.misLibros = misLibros;
         initComponents();
-        cargarTabla();
+        leerLibros();
         setLocationRelativeTo(null);
         
     }
@@ -74,31 +76,21 @@ public class DlgListaLibros extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    protected void cargarTabla(){   
-        dtmModel = (DefaultTableModel) tablaLibros.getModel();
-        Object[] fila = new Object[dtmModel.getColumnCount()];
-        for(int i=0; i<misLibros.obtenerCantidadElementos(); i++){
-        try{
-            Nodo<Libro> elemento = misLibros.obtenerElemento(i);
-            Libro lista = elemento.obtenerContenido();
-            fila[0] = lista.getCodigo();
-            fila[1] = lista.getTitulo();
-            fila[2] = lista.getAutor();
-            fila[3] = lista.getCantidad();
-            /*ObjectInputStream file = new ObjectInputStream(new FileInputStream("src/practica/Datos/Libros/"+clave.getText()+".dat"));
-            Libro libros = (Libro) file.readObject();
-            file.close();
-            fila[0] = libros.getCodigo();
-            fila[1] = libros.getTitulo();
-            fila[2] = libros.getAutor();
-            fila[3] = libros.getPrestados();*/
-            dtmModel.addRow(fila);
-            archivo.leerLibro(misLibros, lista);
-        } catch(Exception ex){
-            Logger.getLogger(DlgListaLibros.class.getName()).log(Level.SEVERE, null, ex);    
-        }
+    
+    
+    public void leerLibros(){
+        Object[][] filas;
+        Entrada<Libro> libros = new Entrada<>();
+        File explorador = new File(MenuPrincipal.pathLibro);
+        DefaultTableModel model = (DefaultTableModel) tablaLibros.getModel();
+        for(String string : explorador.list()){
+            Libro aMostrar = libros.leerBin(MenuPrincipal.pathLibro, string, "");
+            Object[] fila = {aMostrar.getCodigo(),aMostrar.getTitulo(),aMostrar.getAutor(),aMostrar.getCantidad()};
+            model.addRow(fila);
         }
     }
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

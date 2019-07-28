@@ -118,7 +118,6 @@ public class DlgCrearLibro extends javax.swing.JDialog {
             } else {                 
                 Libro libros = new Libro(txt1.getText(), txt2.getText(), codigo[0]+codigo[1]+codigo[2]+"-"+codigo[3]+codigo[4]+codigo[5], Integer.parseInt(txt3.getText()));
                 archivo.guardarLibro(libros, misLibros);
-                archivo.leerLibro(misLibros, libros);
                 txt1.setText("");
                 txt2.setText("");
                 txt3.setText("");       

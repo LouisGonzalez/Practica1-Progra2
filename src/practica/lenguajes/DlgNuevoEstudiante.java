@@ -1,7 +1,10 @@
 package practica.lenguajes;
 
+import java.io.File;
 import javax.swing.JOptionPane;
 import practica.clases.Estudiante;
+import practica.clases.Libro;
+import practica.manejador.Entrada;
 
 /**
  *
@@ -75,7 +78,7 @@ public class DlgNuevoEstudiante extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_registroDatosActionPerformed
 
-
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel carnetEstudiante;
