@@ -16,15 +16,39 @@ public class Estudiante implements Serializable{
     
     private String nombre;
     private int carnet;
-    private String codigoCarrera;
+    private int codigoCarrera;
     private Date fechaNacimiento;
-
-    public Estudiante(String nombre, int carnet, String codigoCarrera) {
+    private int librosPrestados;
+    private String codigo;
+    
+    public Estudiante(String nombre, int carnet, int codigoCarrera, int librosPrestados) {
         this.nombre = nombre;
         this.carnet = carnet;
         this.codigoCarrera = codigoCarrera;
+        this.librosPrestados = librosPrestados;
     }
-       
+     public Estudiante(String nombre, int carnet, String codigoCarrera) {
+        this.nombre = nombre;
+        this.carnet = carnet;
+        this.codigo = codigo;
+    }
+
+    public int getLibrosPrestados() {
+        return librosPrestados;
+    }
+
+    public void setLibrosPrestados(int librosPrestados) {
+        this.librosPrestados = librosPrestados;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+     
     public String getNombre() {
         return nombre;
     }
@@ -41,8 +65,12 @@ public class Estudiante implements Serializable{
         this.carnet = carnet;
     }
 
-    public String getCodigoCarrera() {
+    public int getCodigoCarrera() {
         return codigoCarrera;
+    }
+
+    public void setCodigoCarrera(int codigoCarrera) {
+        this.codigoCarrera = codigoCarrera;
     }
 
     public Date getFechaNacimiento() {

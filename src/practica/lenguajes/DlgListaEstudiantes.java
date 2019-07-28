@@ -1,5 +1,10 @@
 package practica.lenguajes;
 
+import java.io.File;
+import javax.swing.table.DefaultTableModel;
+import practica.clases.Estudiante;
+import practica.manejador.Entrada;
+
 /**
  *
  * @author luisGonzalez
@@ -10,6 +15,7 @@ public class DlgListaEstudiantes extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        loadStudent();
     }
 
     @SuppressWarnings("unchecked")
@@ -47,7 +53,11 @@ public class DlgListaEstudiantes extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tablaEstudiantes);
 
+<<<<<<< HEAD
         panelEstudiantes.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 360, 230));
+=======
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 430, 250));
+>>>>>>> master
 
         getContentPane().add(panelEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
@@ -55,7 +65,19 @@ public class DlgListaEstudiantes extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     
-
+    public void loadStudent(){
+       Object[][] filas;
+        Entrada<Estudiante> allStudent = new Entrada<>();
+        File  explorador = new File(MenuPrincipal.pathEstudiante);
+        DefaultTableModel model = (DefaultTableModel) tablaEstudiantes.getModel();
+        //
+        for (String string : explorador.list()) {
+            Estudiante aMostrar = allStudent.leerBin(MenuPrincipal.pathEstudiante, string, "");
+           Object[] filass = {aMostrar.getCarnet(),aMostrar.getNombre(),aMostrar.getCodigoCarrera()};
+            model.addRow(filass);
+            
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelEstudiantes;

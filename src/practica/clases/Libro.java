@@ -11,7 +11,11 @@ import java.io.Serializable;
  *
  * @author Julio
  */
+<<<<<<< HEAD
 public class Libro implements Serializable {
+=======
+public class Libro implements Serializable{
+>>>>>>> master
    
     private String titulo;
     private String autor;
@@ -33,6 +37,14 @@ public class Libro implements Serializable {
         this.codigo = codigo;
         this.cantidad = cantidad;
     }
+
+    public Libro(String titulo, String autor, String codigo, int cantidad, int prestados) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.codigo = codigo;
+        this.cantidad = cantidad;
+        this.prestados = prestados;
+    }
     
 
     public String getTitulo() {
@@ -46,7 +58,7 @@ public class Libro implements Serializable {
     public String getAutor() {
         return autor;
     }
-
+    
     public void setAutor(String autor) {
         this.autor = autor;
     }
