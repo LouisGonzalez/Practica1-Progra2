@@ -29,7 +29,7 @@ public class ArchivosEstudiantes implements Serializable {
         }
     }
     
-    public Estudiante leerEstudiante(String nombre, int carnetEs, int codigo){
+    public Estudiante leerEstudiante(String nombre, int carnetEs, String codigo){
         Estudiante nuevo = new Estudiante(nombre, carnetEs, codigo);
         try{
             try(ObjectInputStream salidaArchivo = new ObjectInputStream(new FileInputStream(nuevo.getCarnet()+".dat"))){

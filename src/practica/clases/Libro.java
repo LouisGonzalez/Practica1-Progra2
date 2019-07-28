@@ -25,10 +25,11 @@ public class Libro {
  * @param autor  String 
  * @param codigo String identificado unico de cada libro
  */
-    public Libro(String titulo, String autor, String codigo) {
+    public Libro(String titulo, String autor, String codigo, int cantidad) {
         this.titulo = titulo;
         this.autor = autor;
         this.codigo = codigo;
+        this.cantidad = cantidad;
     }
     
 
