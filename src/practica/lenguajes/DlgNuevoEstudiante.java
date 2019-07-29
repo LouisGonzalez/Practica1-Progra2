@@ -59,7 +59,7 @@ public class DlgNuevoEstudiante extends javax.swing.JDialog {
         });
         panelEstudiante.add(registroDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 190, 100, 30));
 
-        carrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingenieria", "Medicina", "Derecho", "Arquitectura", "Administracion" }));
+        carrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
         panelEstudiante.add(carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
 
         getContentPane().add(panelEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 260));
@@ -69,7 +69,7 @@ public class DlgNuevoEstudiante extends javax.swing.JDialog {
 
     private void registroDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroDatosActionPerformed
         try {
-            Estudiante nuevo = new Estudiante(txt1.getText(), Integer.parseInt(txt2.getText()), carrera.getSelectedItem().toString());
+            Estudiante nuevo = new Estudiante(txt1.getText(), Integer.parseInt(txt2.getText()), Integer.parseInt(carrera.getSelectedItem().toString()), 0);
             archivo.guardarEstudiante(nuevo);       
             txt1.setText("");
             txt2.setText("");

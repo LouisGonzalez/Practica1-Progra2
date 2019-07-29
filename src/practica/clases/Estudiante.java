@@ -30,7 +30,7 @@ public class Estudiante implements Serializable{
      public Estudiante(String nombre, int carnet, String codigoCarrera) {
         this.nombre = nombre;
         this.carnet = carnet;
-        this.codigo = codigo;
+        this.codigo = codigoCarrera;
     }
 
     public int getLibrosPrestados() {

@@ -20,6 +20,10 @@ public class Prestamo implements Serializable{
     /*
     agregar el metodo Buscador
     */
+    public Prestamo(Libro aPrestar, Estudiante quePresta){
+        this.aPrestar = aPrestar;
+        this.quePresta = quePresta;
+    }
     
     public Libro getaPrestar() {
         return aPrestar;

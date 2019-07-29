@@ -81,12 +81,12 @@ public class Interprete {
                  this.tupla = new String [5];
             }
             
-        }else if (tupla[0].equals("PRESTAMO")){
+        }/*else if (tupla[0].equals("PRESTAMO")){
              contador++;
             formarPrestamo(palabra);
             if (contador==3) {
                 System.out.println("creando prestamo");
-                Prestamo nuevo = new Prestamo();
+               Prestamo nuevo = new Prestamo(tupla[2], tupla[3], tupla[4]);
                 
                 File buscar = new File(MenuPrincipal.pathLibro+tupla[1]+".book");
                 if (buscar.exists()) {
@@ -139,7 +139,7 @@ public class Interprete {
                  this.tupla = new String [5];
             }
             
-        }else{
+        }*/else{
              errores.setText(errores.getText()+"\nError Linea #"+cont +" IDentificador Invalido "+"Las Siguientes lineas se anularan hasta encontrar un IDENTIFICADOR VALIDO");
              errores.setForeground(Color.red);
              tupla[0] = null;

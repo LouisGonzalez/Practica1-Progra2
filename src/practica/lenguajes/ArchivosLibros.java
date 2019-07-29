@@ -10,7 +10,7 @@ import practica.clases.Libro;
  */
 public class ArchivosLibros implements Serializable {
     
-    public void guardarLibro(Libro libros, ListaLibros<Libro> misLibros){
+    public void guardarLibro(Libro libros){
         try{
             String fichero=MenuPrincipal.pathLibro+libros.getCodigo()+".dat";
             File file = new File(fichero);
@@ -20,8 +20,7 @@ public class ArchivosLibros implements Serializable {
                 JOptionPane.showMessageDialog(null, "Ya existe un estudiante registrado con esta matricula");
             }
             ObjectOutputStream objetoArchivo = new ObjectOutputStream(new FileOutputStream(file));
-            objetoArchivo.writeObject(libros);   
-            misLibros.insertarContenido(libros);
+            objetoArchivo.writeObject(libros);             
             objetoArchivo.flush();            
             objetoArchivo.close();
         } catch(FileNotFoundException e){
