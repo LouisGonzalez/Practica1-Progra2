@@ -117,7 +117,7 @@ public class DlgCrearLibro extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "No se puede agregar un libro si no hay ninguna copia de el");
             } else {                 
                 Libro libros = new Libro(txt1.getText(), txt2.getText(), codigo[0]+codigo[1]+codigo[2]+"-"+codigo[3]+codigo[4]+codigo[5], Integer.parseInt(txt3.getText()));
-                archivo.guardarLibro(libros, misLibros);
+                archivo.guardarLibro(libros);
                 txt1.setText("");
                 txt2.setText("");
                 txt3.setText("");       
