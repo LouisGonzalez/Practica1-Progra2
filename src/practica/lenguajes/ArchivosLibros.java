@@ -16,13 +16,13 @@ public class ArchivosLibros implements Serializable {
             File file = new File(fichero);
             if(!file.exists()){
                 file.createNewFile();
-            } else {
-                JOptionPane.showMessageDialog(null, "Ya existe un estudiante registrado con esta matricula");
-            }
-            ObjectOutputStream objetoArchivo = new ObjectOutputStream(new FileOutputStream(file));
+                ObjectOutputStream objetoArchivo = new ObjectOutputStream(new FileOutputStream(file));
             objetoArchivo.writeObject(libros);             
             objetoArchivo.flush();            
             objetoArchivo.close();
+            } else {
+                JOptionPane.showMessageDialog(null, "Ya existe un libro registrado con este codigo");
+            }
         } catch(FileNotFoundException e){
             JOptionPane.showMessageDialog(null, e);
         } catch(IOException ioe){            

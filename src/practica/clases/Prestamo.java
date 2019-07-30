@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package practica.clases;
-
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
@@ -16,13 +16,41 @@ public class Prestamo implements Serializable{
     private Libro aPrestar;
     private Estudiante quePresta;
     private String codigo;
-
+    private Date fecha;
+    private Date fechaEntrega;
     /*
     agregar el metodo Buscador
     */
+    public Prestamo(Libro aPrestar, Estudiante quePresta, Date fecha, Date fechaEntrega){
+        this.aPrestar = aPrestar;
+        this.quePresta = quePresta;
+        this.fecha = fecha;
+        this.fechaEntrega = fechaEntrega;
+    }
     public Prestamo(Libro aPrestar, Estudiante quePresta){
         this.aPrestar = aPrestar;
         this.quePresta = quePresta;
+      
+         
+    }
+
+    public Date getfechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setAsdf(Date asdf) {
+        this.fechaEntrega = asdf;
+    }
+
+   
+
+    
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
     
     public Libro getaPrestar() {
