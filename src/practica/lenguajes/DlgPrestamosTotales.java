@@ -38,11 +38,11 @@ public class DlgPrestamosTotales extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Codigo Libro:", "Carnet:", "Fecha de Prestamo:"
+                "Codigo Libro:", "Carnet:", "Fecha de Prestamo:", "Fecha de entrega:"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -51,12 +51,12 @@ public class DlgPrestamosTotales extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tablaPrestamos);
 
-        panelPrestamos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 430, 210));
+        panelPrestamos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 500, 270));
 
         jLabel1.setText("LISTADO PRESTAMOS TOTALES");
-        panelPrestamos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 200, 30));
+        panelPrestamos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 200, 30));
 
-        getContentPane().add(panelPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 300));
+        getContentPane().add(panelPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -64,12 +64,12 @@ public class DlgPrestamosTotales extends javax.swing.JDialog {
     public void loadStudent(){
         Object[][] filas;
         Entrada<Prestamo> allStudent = new Entrada<>();
-        File  explorador = new File(MenuPrincipal.pathPrestamo);
+        File explorador = new File(MenuPrincipal.pathPrestamo);
         DefaultTableModel model = (DefaultTableModel) tablaPrestamos.getModel();
         //
         for (String string : explorador.list()) {
             Prestamo aMostrar = allStudent.leerBin(MenuPrincipal.pathPrestamo, string, "");
-            Object[] filass = {aMostrar.getaPrestar().getCodigo(),aMostrar.getQuePresta().getCarnet()};
+            Object[] filass = {aMostrar.getaPrestar().getCodigo(),aMostrar.getQuePresta().getCarnet(),aMostrar.getFecha(),aMostrar.getfechaEntrega()};
             model.addRow(filass);
             
         }

@@ -63,6 +63,7 @@ public class DlgBuscarEstudiante extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "El estudiante ha sido encontrado con exito");
             DlgPrestamoLibros prestamo = new DlgPrestamoLibros(null, true, aMostrar);
             prestamo.setVisible(true);
+            this.dispose();
             
         }
         

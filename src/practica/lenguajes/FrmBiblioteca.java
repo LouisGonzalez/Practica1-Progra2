@@ -1,7 +1,11 @@
 package practica.lenguajes;
-
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import practica.clases.Dinero;
 import practica.clases.Estudiante;
 import practica.clases.Libro;
+import practica.manejador.Entrada;
 
 /**
  *
@@ -12,11 +16,15 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     ArchivosEstudiantes archivos = new ArchivosEstudiantes();
     ArchivosLibros archivo2 = new ArchivosLibros();
     private ListaLibros<Libro> misLibros = new ListaLibros<>();
+    Dinero dinero;
     
     
-    public FrmBiblioteca() {
+    public FrmBiblioteca(Dinero dinero) {
         initComponents();
         setLocationRelativeTo(null);
+       
+        this.dinero = dinero;
+         cargarDinero(dinero);
     }
 
     @SuppressWarnings("unchecked")
@@ -25,6 +33,10 @@ public class FrmBiblioteca extends javax.swing.JFrame {
 
         panelBiblioteca = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        txt1 = new javax.swing.JLabel();
+        txt2 = new javax.swing.JLabel();
+        txt3 = new javax.swing.JLabel();
         txt5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         estudiante = new javax.swing.JMenu();
@@ -50,9 +62,18 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 24)); // NOI18N
         jLabel1.setText("BIBLIOTECA");
         panelBiblioteca.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 151, 38));
-        panelBiblioteca.add(txt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 190, 50));
 
-        getContentPane().add(panelBiblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 350));
+        txt1.setText("Capital actual:");
+        jPanel1.add(txt1);
+
+        txt2.setText("Q.");
+        jPanel1.add(txt2);
+        jPanel1.add(txt3);
+
+        panelBiblioteca.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 240, 50));
+        panelBiblioteca.add(txt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 90, 90));
+
+        getContentPane().add(panelBiblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 530, 350));
 
         estudiante.setText("Estudiantes");
 
@@ -150,6 +171,21 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cargarDinero(Dinero dinero){
+        /*Entrada<Dinero> nuevo = new Entrada<>();
+        Dinero aPagar = nuevo.leerBin(MenuPrincipal.pathDinero, "Ganancias", ".dat");
+        txt3.setText(Integer.toString(aPagar.getGanancias()));*/
+        try{
+        Dinero cantidad = new Dinero(dinero.getGanancias());
+        ObjectOutputStream escribirDinero = new ObjectOutputStream(new
+        FileOutputStream(MenuPrincipal.pathDinero+"Ganancias.dat"));
+        escribirDinero.writeObject(cantidad);
+        escribirDinero.close();
+        txt3.setText(Integer.toString(dinero.getGanancias()));
+        }catch(IOException ioe){
+        }
+    }
+    
     private void prestamosMora1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestamosMora1ActionPerformed
         Cargar frm = new Cargar();
         frm.setVisible(true);
@@ -187,7 +223,8 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_prestamoActionPerformed
 
     private void pagoLibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagoLibActionPerformed
-
+        DlgDevolucionLibro devolucion = new DlgDevolucionLibro(null, true, txt3);
+        devolucion.setVisible(true);
     }//GEN-LAST:event_pagoLibActionPerformed
 
     private void prestamosMoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestamosMoraActionPerformed
@@ -204,6 +241,7 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu libros;
     private javax.swing.JMenuItem listado;
     private javax.swing.JMenuItem pagoLib;
@@ -213,6 +251,9 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     private javax.swing.JMenuItem prestamosMora;
     private javax.swing.JMenuItem prestamosMora1;
     private javax.swing.JMenuItem prestamosTotales;
+    private javax.swing.JLabel txt1;
+    private javax.swing.JLabel txt2;
+    private javax.swing.JLabel txt3;
     private javax.swing.JLabel txt5;
     // End of variables declaration//GEN-END:variables
 }
