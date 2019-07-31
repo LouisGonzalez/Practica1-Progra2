@@ -1,5 +1,4 @@
 package practica.lenguajes;
-
 import java.io.Serializable;
 
 /**
