@@ -39,17 +39,16 @@ public class DlgListaLibros extends javax.swing.JDialog {
     private void initComponents() {
 
         panelLibros = new javax.swing.JPanel();
-        txt1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaLibros = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        txt1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelLibros.setBackground(new java.awt.Color(255, 255, 255));
         panelLibros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txt1.setText("LISTADO OFICIAL LIBROS BIBLIOTECA CUNOC");
-        panelLibros.add(txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 260, 30));
 
         tablaLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,9 +68,34 @@ public class DlgListaLibros extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tablaLibros);
 
-        panelLibros.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, 220));
+        panelLibros.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 350, 220));
 
-        getContentPane().add(panelLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        getContentPane().add(panelLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 400, 280));
+
+        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
+
+        txt1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        txt1.setForeground(new java.awt.Color(0, 0, 102));
+        txt1.setText("LISTADO OFICIAL LIBROS BIBLIOTECA CUNOC");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(txt1)
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txt1)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -94,6 +118,7 @@ public class DlgListaLibros extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelLibros;
     private javax.swing.JTable tablaLibros;

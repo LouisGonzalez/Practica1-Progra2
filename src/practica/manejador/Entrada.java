@@ -43,10 +43,9 @@ public class Entrada <T> {
         try {
             ObjectInputStream recibirObjeto = new ObjectInputStream(new 
             FileInputStream(path+nombre+extension));
-             T parametro = (T) recibirObjeto.readObject();
-           
-           recibirObjeto.close();
-           return parametro;
+            T parametro = (T) recibirObjeto.readObject();           
+            recibirObjeto.close();
+            return parametro;
         } catch (IOException e) {
             System.out.println(extension);
             e.printStackTrace();

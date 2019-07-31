@@ -26,11 +26,13 @@ public class DlgPrestamosTotales extends javax.swing.JDialog {
         panelPrestamos = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPrestamos = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelPrestamos.setBackground(new java.awt.Color(255, 255, 255));
         panelPrestamos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaPrestamos.setModel(new javax.swing.table.DefaultTableModel(
@@ -51,12 +53,33 @@ public class DlgPrestamosTotales extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tablaPrestamos);
 
-        panelPrestamos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 500, 270));
+        panelPrestamos.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 500, 270));
 
+        getContentPane().add(panelPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 540, 310));
+
+        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setText("LISTADO PRESTAMOS TOTALES");
-        panelPrestamos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 200, 30));
 
-        getContentPane().add(panelPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 360));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addComponent(jLabel1))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -77,6 +100,7 @@ public class DlgPrestamosTotales extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelPrestamos;
     private javax.swing.JTable tablaPrestamos;

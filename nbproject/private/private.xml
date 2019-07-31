@@ -3,12 +3,52 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/C:/Users/Silvia_2/Documents/NetBeansProjects/PracticaGit/Practica1-Progra2/src/practica/lenguajes/FrmBiblioteca.java</file>
-            <file>file:/C:/Users/Silvia_2/Documents/NetBeansProjects/PracticaGit/Practica1-Progra2/src/practica/lenguajes/Cargar.java</file>
-            <file>file:/C:/Users/Silvia_2/Documents/NetBeansProjects/PracticaGit/Practica1-Progra2/src/practica/manejador/Entrada.java</file>
-            <file>file:/C:/Users/Silvia_2/Documents/NetBeansProjects/PracticaGit/Practica1-Progra2/src/practica/lenguajes/Interprete.java</file>
-
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/FrmBiblioteca.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/ArchivosPrestamos.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje15.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgPrestamosTotales.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje2.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgDevolucionLibro.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/Success.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/clases/Libro.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgPrestamoLibros.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje13.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgListaEstudiantes.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/ArchivosDinero.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje6.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/Interprete.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgBuscarEstudiante.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje10.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje9.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/ListaLibros.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/ArchivosLibros.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/manejador/Salida.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgCopias.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje3.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/clases/Dinero.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgNuevoEstudiante.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/clases/Estudiante.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje4.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/manejador/Entrada.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/MenuPrincipal.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje11.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje14.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgNuevoLibro.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/Nodo.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje1.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/clases/Prestamos.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/Cargar.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgCrearLibro.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgNuevaCopiaLibros.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje7.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje16.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/Animacion.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/ArchivosEstudiantes.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje5.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje8.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/mensajes/Mensaje12.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/lenguajes/DlgListaLibros.java</file>
+            <file>file:/home/luisitopapurey/Escritorio/Practica1%20Lenguajes/Practica1Lenguajes/src/practica/clases/Prestamo.java</file>
         </group>
     </open-files>
 </project-private>

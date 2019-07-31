@@ -3,6 +3,9 @@ package practica.lenguajes;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import practica.clases.Libro;
+import practica.mensajes.Mensaje13;
+import practica.mensajes.Mensaje17;
+import practica.mensajes.Mensaje3;
 
 /**
  *
@@ -43,34 +46,30 @@ public class DlgCrearLibro extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         copiasTotales = new javax.swing.JLabel();
         txt3 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelLibro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelLibro.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setText("Titulo:");
-        panelLibro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, 20));
 
+        autorLibro.setForeground(new java.awt.Color(0, 0, 102));
         autorLibro.setText("Autor:");
-        panelLibro.add(autorLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 80, 20));
 
+        codigoLibro.setForeground(new java.awt.Color(0, 0, 102));
         codigoLibro.setText("Codigo:");
-        panelLibro.add(codigoLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 70, 20));
-        panelLibro.add(txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 270, -1));
-        panelLibro.add(txt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 270, -1));
 
         a1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
-        panelLibro.add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 40, -1));
 
         a2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
-        panelLibro.add(a2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 40, -1));
 
         a3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
-        panelLibro.add(a3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 40, -1));
 
         a4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }));
-        panelLibro.add(a4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 40, -1));
 
         a5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }));
         a5.addActionListener(new java.awt.event.ActionListener() {
@@ -78,24 +77,124 @@ public class DlgCrearLibro extends javax.swing.JDialog {
                 a5ActionPerformed(evt);
             }
         });
-        panelLibro.add(a5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 40, -1));
 
         a6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }));
-        panelLibro.add(a6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 40, -1));
 
-        jButton1.setText("Ingresar");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/practica/botones/Guardar/save_norm.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/practica/botones/Guardar/save_press.png"))); // NOI18N
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/practica/botones/Guardar/save_roll.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        panelLibro.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 110, 30));
 
+        copiasTotales.setForeground(new java.awt.Color(0, 0, 102));
         copiasTotales.setText("Copias:");
-        panelLibro.add(copiasTotales, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 90, 20));
-        panelLibro.add(txt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 80, -1));
 
-        getContentPane().add(panelLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 300));
+        javax.swing.GroupLayout panelLibroLayout = new javax.swing.GroupLayout(panelLibro);
+        panelLibro.setLayout(panelLibroLayout);
+        panelLibroLayout.setHorizontalGroup(
+            panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLibroLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLibroLayout.createSequentialGroup()
+                        .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelLibroLayout.createSequentialGroup()
+                                .addComponent(codigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(a1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(a2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(a3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(a4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(a5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(a6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelLibroLayout.createSequentialGroup()
+                                .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(autorLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8)
+                                .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap())
+                    .addGroup(panelLibroLayout.createSequentialGroup()
+                        .addComponent(copiasTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))))
+        );
+        panelLibroLayout.setVerticalGroup(
+            panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLibroLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(autorLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(a1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(a2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(a3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(a4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(a5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(a6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLibroLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(panelLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(copiasTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelLibroLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(97, 97, 97))
+        );
+
+        getContentPane().add(panelLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 440, 200));
+
+        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel2.setText("Datos Nuevo Libro:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(160, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -114,7 +213,8 @@ public class DlgCrearLibro extends javax.swing.JDialog {
         txt5.setText(codigo[0]+codigo[1]+codigo[2]+"-"+codigo[3]+codigo[4]+codigo[5]); 
         try{          
             if(Integer.parseInt(txt3.getText())==0 || txt3.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "No se puede agregar un libro si no hay ninguna copia de el");
+                new Mensaje17(null, true).setVisible(true);          
+                //JOptionPane.showMessageDialog(null, "No se puede agregar un libro si no hay ninguna copia de el");
             } else {                 
                 Libro libros = new Libro(txt1.getText(), txt2.getText(), codigo[0]+codigo[1]+codigo[2]+"-"+codigo[3]+codigo[4]+codigo[5], Integer.parseInt(txt3.getText()));
                 archivo.guardarLibro(libros);
@@ -123,7 +223,8 @@ public class DlgCrearLibro extends javax.swing.JDialog {
                 txt3.setText("");       
             }
         } catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Ha escrito un caracter incorrecto");
+            new Mensaje13(null, true).setVisible(true);          
+            //JOptionPane.showMessageDialog(null, "Ha escrito un caracter incorrecto");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -151,6 +252,8 @@ public class DlgCrearLibro extends javax.swing.JDialog {
     private javax.swing.JLabel copiasTotales;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panelLibro;
     private javax.swing.JTextField txt1;
     private javax.swing.JTextField txt2;
