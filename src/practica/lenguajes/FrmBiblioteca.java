@@ -1,7 +1,10 @@
 package practica.lenguajes;
+import java.awt.Image;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import practica.clases.Dinero;
 import practica.clases.Estudiante;
 import practica.clases.Libro;
@@ -17,16 +20,18 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     ArchivosLibros archivo2 = new ArchivosLibros();
     private ListaLibros<Libro> misLibros = new ListaLibros<>();
     Dinero dinero;
+    private final ImageIcon fondo = new ImageIcon("/home/luisitopapurey/Escritorio/Practica1 Lenguajes/Practica1Lenguajes/src/practica/imagenes/logotipo-usac-azul.jpg");
     
     
     public FrmBiblioteca(Dinero dinero) {
         initComponents();
-        setLocationRelativeTo(null);
-       
+        setLocationRelativeTo(null);       
         this.dinero = dinero;
-         cargarDinero(dinero);
+        cargarDinero(dinero);
+        Icon simbolo = new ImageIcon(fondo.getImage().getScaledInstance(fondoBib.getWidth(), fondoBib.getHeight(), Image.SCALE_DEFAULT));
+        fondoBib.setIcon(simbolo);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,6 +43,8 @@ public class FrmBiblioteca extends javax.swing.JFrame {
         txt2 = new javax.swing.JLabel();
         txt3 = new javax.swing.JLabel();
         txt5 = new javax.swing.JLabel();
+        fondoBib = new javax.swing.JLabel();
+        fondo2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         estudiante = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -59,21 +66,31 @@ public class FrmBiblioteca extends javax.swing.JFrame {
 
         panelBiblioteca.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setText("BIBLIOTECA");
-        panelBiblioteca.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 151, 38));
+        panelBiblioteca.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 260, 38));
 
+        txt1.setForeground(new java.awt.Color(0, 0, 102));
         txt1.setText("Capital actual:");
         jPanel1.add(txt1);
 
+        txt2.setForeground(new java.awt.Color(0, 0, 102));
         txt2.setText("Q.");
         jPanel1.add(txt2);
+
+        txt3.setForeground(new java.awt.Color(0, 0, 102));
         jPanel1.add(txt3);
 
-        panelBiblioteca.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 240, 50));
+        panelBiblioteca.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 220, 50));
         panelBiblioteca.add(txt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 90, 90));
+        panelBiblioteca.add(fondoBib, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 590, 230));
 
-        getContentPane().add(panelBiblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 530, 350));
+        fondo2.setBackground(new java.awt.Color(51, 255, 51));
+        fondo2.setForeground(new java.awt.Color(255, 255, 255));
+        panelBiblioteca.add(fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 60));
+
+        getContentPane().add(panelBiblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 290));
 
         estudiante.setText("Estudiantes");
 
@@ -172,16 +189,13 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cargarDinero(Dinero dinero){
-        /*Entrada<Dinero> nuevo = new Entrada<>();
-        Dinero aPagar = nuevo.leerBin(MenuPrincipal.pathDinero, "Ganancias", ".dat");
-        txt3.setText(Integer.toString(aPagar.getGanancias()));*/
         try{
-        Dinero cantidad = new Dinero(dinero.getGanancias());
-        ObjectOutputStream escribirDinero = new ObjectOutputStream(new
-        FileOutputStream(MenuPrincipal.pathDinero+"Ganancias.dat"));
-        escribirDinero.writeObject(cantidad);
-        escribirDinero.close();
-        txt3.setText(Integer.toString(dinero.getGanancias()));
+            Dinero cantidad = new Dinero(dinero.getGanancias());
+            ObjectOutputStream escribirDinero = new ObjectOutputStream(new
+            FileOutputStream(MenuPrincipal.pathDinero+"Ganancias.dat"));
+            escribirDinero.writeObject(cantidad);
+            escribirDinero.close();
+            txt3.setText(Integer.toString(dinero.getGanancias()));
         }catch(IOException ioe){
         }
     }
@@ -238,6 +252,8 @@ public class FrmBiblioteca extends javax.swing.JFrame {
     private javax.swing.JMenuItem biblioteca;
     private javax.swing.JMenu btnConf;
     private javax.swing.JMenu estudiante;
+    private javax.swing.JLabel fondo2;
+    private javax.swing.JLabel fondoBib;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

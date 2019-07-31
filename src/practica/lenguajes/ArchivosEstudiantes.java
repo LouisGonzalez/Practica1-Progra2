@@ -2,6 +2,7 @@ package practica.lenguajes;
 import java.io.*;
 import javax.swing.JOptionPane;
 import practica.clases.Estudiante;
+import practica.mensajes.Mensaje15;
 
 /**
  *
@@ -21,7 +22,8 @@ public class ArchivosEstudiantes implements Serializable {
             objetoArchivo.close();
         
             } else {
-                JOptionPane.showMessageDialog(null, "Ya existe un estudiante registrado con esta matricula");
+                new Mensaje15(null, true).setVisible(true);               
+                //JOptionPane.showMessageDialog(null, "Ya existe un estudiante registrado con esta matricula");
             }
         } catch(FileNotFoundException e){
             JOptionPane.showMessageDialog(null, e);

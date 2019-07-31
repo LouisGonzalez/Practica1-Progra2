@@ -3,6 +3,7 @@ package practica.lenguajes;
 import java.io.*;
 import javax.swing.JOptionPane;
 import practica.clases.Prestamo;
+import practica.mensajes.Mensaje7;
 
 /**
  *
@@ -21,6 +22,7 @@ public class ArchivosPrestamos implements Serializable {
                 objetoArchivo.flush();
                 objetoArchivo.close();       
             } else {
+                new Mensaje7(null, true).setVisible(true);            
                 JOptionPane.showMessageDialog(null, "Ya existe un prestamo con estos datos en el sistema");
             }
         } catch(FileNotFoundException e){

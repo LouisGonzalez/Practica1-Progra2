@@ -3,6 +3,8 @@ import java.io.*;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import practica.clases.Libro;
+import practica.mensajes.Mensaje10;
+import practica.mensajes.Mensaje14;
 
 /**
  *
@@ -21,7 +23,8 @@ public class ArchivosLibros implements Serializable {
             objetoArchivo.flush();            
             objetoArchivo.close();
             } else {
-                JOptionPane.showMessageDialog(null, "Ya existe un libro registrado con este codigo");
+                new Mensaje14(null, true).setVisible(true);                  
+                //JOptionPane.showMessageDialog(null, "Ya existe un libro registrado con este codigo");
             }
         } catch(FileNotFoundException e){
             JOptionPane.showMessageDialog(null, e);
