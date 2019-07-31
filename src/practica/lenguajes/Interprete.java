@@ -62,7 +62,7 @@ public class Interprete {
             if (contador==4) {        //titulo   //autor   //codigo  //copias totales          //prestados
                 Libro libro = new Libro(tupla[1], tupla[2], tupla[3], Integer.parseInt(tupla[4]), 0);
                 Salida<Libro> deLibro = new Salida();
-                deLibro.EscribirBin(libro, MenuPrincipal.pathLibro, tupla[3], ".book");
+                deLibro.EscribirBin(libro, MenuPrincipal.pathLibro, tupla[3], ".dat");
                 tupla = null;
                 contador=0;
                  this.tupla = new String [5];
@@ -75,7 +75,7 @@ public class Interprete {
                 System.out.println("Estudiante create");
                 Estudiante nuevo = new Estudiante(tupla[2],Integer.parseInt(tupla[1]),  Integer.parseInt(tupla[3]), 0);
                 Salida<Estudiante> student = new Salida<Estudiante>();
-                student.EscribirBin(nuevo, MenuPrincipal.pathEstudiante, tupla[1], ".st");
+                student.EscribirBin(nuevo, MenuPrincipal.pathEstudiante, tupla[1], ".dat");
                 tupla = null;
                 contador=0;
                  this.tupla = new String [5];
